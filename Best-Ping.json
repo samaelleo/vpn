@@ -1,0 +1,770 @@
+{
+  "remarks": "💦 BPB - Best Ping 💥",
+  "log": {
+    "loglevel": "warning"
+  },
+  "dns": {
+    "hosts": {
+      "geosite:category-ads-all": [
+        "127.0.0.1"
+      ],
+      "geosite:category-ads-ir": [
+        "127.0.0.1"
+      ]
+    },
+    "servers": [
+      "https://8.8.8.8/dns-query",
+      {
+        "address": "8.8.8.8",
+        "domains": [
+          "full:hard-work.mkb1587816.workers.dev",
+          "full:www.speedtest.net"
+        ],
+        "skipFallback": true
+      },
+      {
+        "address": "8.8.8.8",
+        "domains": [
+          "geosite:category-ir"
+        ],
+        "expectIPs": [
+          "geoip:ir"
+        ],
+        "skipFallback": true
+      }
+    ],
+    "queryStrategy": "UseIPv4",
+    "tag": "dns"
+  },
+  "inbounds": [
+    {
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "enabled": true,
+        "routeOnly": true
+      },
+      "tag": "socks-in"
+    },
+    {
+      "port": 10809,
+      "protocol": "http",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "enabled": true,
+        "routeOnly": true
+      },
+      "tag": "http-in"
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 10853,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "1.1.1.1",
+        "network": "tcp,udp",
+        "port": 53
+      },
+      "tag": "dns-in"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "hard-work.mkb1587816.workers.dev",
+            "port": 443,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/Xc8cNregvgK425Pn?ed=2560"
+        },
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "randomized",
+          "alpn": [
+            "h2",
+            "http/1.1"
+          ],
+          "serverName": "haRD-WorK.MkB1587816.woRKErS.DEv"
+        }
+      },
+      "tag": "prox-1"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "www.speedtest.net",
+            "port": 443,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/xWkeCk9EJZpmPYmt?ed=2560"
+        },
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "randomized",
+          "alpn": [
+            "h2",
+            "http/1.1"
+          ],
+          "serverName": "hArD-wORK.mkb1587816.WORKeRS.dEv"
+        }
+      },
+      "tag": "prox-2"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.21.88.231",
+            "port": 443,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/KBf7bpZqXxT4zccF?ed=2560"
+        },
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "randomized",
+          "alpn": [
+            "h2",
+            "http/1.1"
+          ],
+          "serverName": "HarD-WORk.MkB1587816.wORkERs.dEV"
+        }
+      },
+      "tag": "prox-3"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "172.67.153.162",
+            "port": 443,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/H11oWp17j6fXAKlP?ed=2560"
+        },
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "randomized",
+          "alpn": [
+            "h2",
+            "http/1.1"
+          ],
+          "serverName": "HarD-worK.mKb1587816.wORKeRS.DEV"
+        }
+      },
+      "tag": "prox-4"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "hard-work.mkb1587816.workers.dev",
+            "port": 80,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/xqINUUrPYZRLitXp?ed=2560"
+        }
+      },
+      "tag": "prox-5"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "www.speedtest.net",
+            "port": 80,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/tPXIrOBq9ipTnOyx?ed=2560"
+        }
+      },
+      "tag": "prox-6"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.21.88.231",
+            "port": 80,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/hYfIcETnhcUHGJlo?ed=2560"
+        }
+      },
+      "tag": "prox-7"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "172.67.153.162",
+            "port": 80,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/aI7xyEMAxcTKqtLF?ed=2560"
+        }
+      },
+      "tag": "prox-8"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "hard-work.mkb1587816.workers.dev",
+            "port": 8080,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/tx6bPoJB1dplsw5n?ed=2560"
+        }
+      },
+      "tag": "prox-9"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "www.speedtest.net",
+            "port": 8080,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/Hk9Dr6Q7xUVuSYUM?ed=2560"
+        }
+      },
+      "tag": "prox-10"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.21.88.231",
+            "port": 8080,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/g25J7lh3oiRyP7al?ed=2560"
+        }
+      },
+      "tag": "prox-11"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "172.67.153.162",
+            "port": 8080,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/qXsAp9HwTr2jRmlh?ed=2560"
+        }
+      },
+      "tag": "prox-12"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "hard-work.mkb1587816.workers.dev",
+            "port": 2052,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/XX9Ygxx8SRns3pJ3?ed=2560"
+        }
+      },
+      "tag": "prox-13"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "www.speedtest.net",
+            "port": 2052,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/fLYjjKRVtQXQuKnu?ed=2560"
+        }
+      },
+      "tag": "prox-14"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.21.88.231",
+            "port": 2052,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/uJ4s0cO4RjMmbBIy?ed=2560"
+        }
+      },
+      "tag": "prox-15"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "172.67.153.162",
+            "port": 2052,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/u5TIkZNYWg9OvY6k?ed=2560"
+        }
+      },
+      "tag": "prox-16"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "hard-work.mkb1587816.workers.dev",
+            "port": 2082,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/Kb1WqkggttBiUOiG?ed=2560"
+        }
+      },
+      "tag": "prox-17"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "www.speedtest.net",
+            "port": 2082,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "sockopt": {
+          "tcpKeepAliveIdle": 30,
+          "tcpNoDelay": true,
+          "domainStrategy": "UseIPv4"
+        },
+        "wsSettings": {
+          "host": "hard-work.mkb1587816.workers.dev",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+          },
+          "path": "/uEulMNYbwUYG7cAj?ed=2560"
+        }
+      },
+      "tag": "prox-18"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.21.88.231",
+            "port": 2082,
+            "users": [
+              {
+                "id": "00eb66de-bf6b-47e0-af67-d548d2725d6e",
+                "encryption": "none",
+                "level": 8
+              }
+            ]
+          }
+ 
